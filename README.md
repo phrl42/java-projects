@@ -1,2 +1,2 @@
 # java-projects
-all my java projects written while enrolled in university of stuttgart
+all my java projects written while enrolled in the university of stuttgart
