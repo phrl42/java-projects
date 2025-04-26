@@ -1,7 +1,12 @@
 
 import java.util.List;
 
+import Main.InsertionSort;
+import Main.MergeSort;
+import Main.SelectionSortBloated;
 import Main.SelectionSort;
+import Main.Sorting;
+
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -11,11 +16,15 @@ public class Main {
 
     Random rand = new Random();
 
-    for(int i = 0; i < 500; i++){
-      list.add(rand.nextInt(500));
+    for(int i = 0; i < 10; i++){
+      list.add(rand.nextInt(40));
     }
 
-    SelectionSort sort = new SelectionSort();
+    for(int i = 0; i < list.size(); i++){
+      System.out.println("Index: " + i + " and value: " + list.get(i));
+    }
+
+    Sorting sort = new MergeSort();
 
     final long startTime = System.nanoTime();
     sort.sort(list);
