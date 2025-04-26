@@ -3,6 +3,7 @@ import java.util.List;
 
 import Main.InsertionSort;
 import Main.MergeSort;
+import Main.QuickSort;
 import Main.SelectionSortBloated;
 import Main.SelectionSort;
 import Main.Sorting;
@@ -24,7 +25,7 @@ public class Main {
       System.out.println("Index: " + i + " and value: " + list.get(i));
     }
 
-    Sorting sort = new MergeSort();
+    Sorting sort = new QuickSort();
 
     final long startTime = System.nanoTime();
     sort.sort(list);
