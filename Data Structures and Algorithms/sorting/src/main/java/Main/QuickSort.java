@@ -4,41 +4,51 @@ import java.util.List;
 
 public class QuickSort implements Sorting {
 
+  private int p;
+
   @Override
   public List<Integer> sort(List<Integer> list) {
-    MQuickSort(list, 0, list.size() - 1);
+    p = list.size() / 2;
+
+    FunctionQuickSort(list, 0, list.size() - 1);
     return list;
   }
 
-  private List<Integer> MQuickSort(List<Integer> list, int lowerLimit, int upperLimit) {
-    if (upperLimit > lowerLimit) {
-      int pn = Split(list, lowerLimit, upperLimit, list.size() / 2);
+  private void FunctionQuickSort(List<Integer> list, int l, int u)
+  {
+    if(l < u){
+      int pn = Split(list, l, u);
 
-      MQuickSort(list, lowerLimit, pn - 1);
-      MQuickSort(list, pn + 1, upperLimit);
+      FunctionQuickSort(list, l, pn - 1);
+      FunctionQuickSort(list, pn + 1, u);
     }
-
-    return list;
   }
 
-  private int Split(List<Integer> list, int lowerLimit, int upperLimit, int pivotPosition) {
-    int pn = lowerLimit;
-    int pv = list.get(pivotPosition);
-    list.set(upperLimit, pv);
+  private int Split(List<Integer> list, int l, int u){
+    int pn = l;
+    int pv = list.get(p);
 
-    for (int i = lowerLimit; i < upperLimit - 1; i++) {
-      if (list.get(i) < pv) {
-        int pnvalue = list.get(pn);
-        list.set(pn, list.get(i));
-        list.set(i, pnvalue);
+    int tmp = list.get(p);
+    list.set(p, list.get(u));
+    list.set(u, tmp);
+
+    for(int i = l; i < u; i++){
+      if(list.get(i) < pv){
+
+        tmp = list.get(i);
+        list.set(i, list.get(pn));
+        list.set(pn, tmp);
+
         pn = pn + 1;
       }
     }
 
-    int upperValue = list.get(upperLimit);
+    tmp = list.get(u);
 
-    list.set(upperLimit, list.get(pn));
-    list.set(pn, upperValue);
+    list.set(u, list.get(pn));
+    list.set(pn, tmp);
+  
     return pn;
   }
+
 }

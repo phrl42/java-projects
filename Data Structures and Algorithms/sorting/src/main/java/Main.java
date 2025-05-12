@@ -25,7 +25,9 @@ public class Main {
       System.out.println("Index: " + i + " and value: " + list.get(i));
     }
 
-    Sorting sort = new BubbleSort();
+    System.out.println();
+
+    Sorting sort = new QuickSort();
 
     final long startTime = System.nanoTime();
     sort.sort(list);
