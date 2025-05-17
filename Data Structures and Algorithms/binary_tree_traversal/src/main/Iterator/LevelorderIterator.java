@@ -12,6 +12,10 @@ public class LevelorderIterator<T extends Comparable<T>> implements Iterator<T> 
   private Queue<IBinaryTreeNode<T>> printQueue = new LinkedList<>();
 
   public LevelorderIterator(final IBinaryTreeNode<T> root){
+    if(root == null){
+      throw new NullPointerException();
+    }
+    
     this.root = root;
 
     printQueue.add(this.root);

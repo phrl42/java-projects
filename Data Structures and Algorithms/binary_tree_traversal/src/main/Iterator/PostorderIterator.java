@@ -10,6 +10,10 @@ public class PostorderIterator<T extends Comparable<T>> implements Iterator<T> {
   private Stack<IBinaryTreeNode<T>> elements = new Stack<>();
 
   public PostorderIterator(final IBinaryTreeNode<T> root) {
+    if(root == null){
+      throw new NullPointerException();
+    }
+    
     elements.push(root);
   }
 

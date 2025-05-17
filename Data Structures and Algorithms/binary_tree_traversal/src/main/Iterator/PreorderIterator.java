@@ -11,6 +11,10 @@ public class PreorderIterator<T extends Comparable<T>> implements Iterator<T> {
   private Stack<IBinaryTreeNode<T>> elements = new Stack<>();
 
   public PreorderIterator(final IBinaryTreeNode<T> root) {
+    if(root == null){
+      throw new NullPointerException();
+    }
+    
     elements.push(root);
   }
 

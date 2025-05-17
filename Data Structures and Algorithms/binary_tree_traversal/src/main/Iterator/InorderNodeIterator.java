@@ -10,6 +10,10 @@ public class InorderNodeIterator<T extends Comparable<T>> implements Iterator<IB
   private Stack<IBinaryTreeNode<T>> elements = new Stack<>();
 
   public InorderNodeIterator(final IBinaryTreeNode<T> root){
+    if(root == null){
+      throw new NullPointerException();
+    }
+    
     elements.add(root);
   }
 

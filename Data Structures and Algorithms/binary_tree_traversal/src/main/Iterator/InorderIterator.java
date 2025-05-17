@@ -9,17 +9,21 @@ import IBinaryTreeNode;
 public class InorderIterator<T extends Comparable<T>> implements Iterator<T> {
   private Stack<IBinaryTreeNode<T>> elements = new Stack<>();
 
-  public InorderIterator(final IBinaryTreeNode<T> root){
+  public InorderIterator(final IBinaryTreeNode<T> root) {
+    if (root == null) {
+      throw new NullPointerException();
+    }
+
     elements.add(root);
   }
 
   @Override
-  public boolean hasNext(){
+  public boolean hasNext() {
     return elements.size() != 0;
   }
 
-  @Override 
-  public T next(){
+  @Override
+  public T next() {
     if (elements.size() == 0) {
       throw new NoSuchElementException();
     }
@@ -27,18 +31,18 @@ public class InorderIterator<T extends Comparable<T>> implements Iterator<T> {
     IBinaryTreeNode<T> element = elements.peek();
     IBinaryTreeNode<T> leftChild = element.getLeftChild();
 
-    while(leftChild != null) {
+    while (leftChild != null) {
       elements.add(leftChild);
       leftChild = leftChild.getLeftChild();
     }
 
     element = elements.pop();
 
-    if(!elements.isEmpty()){
+    if (!elements.isEmpty()) {
       elements.peek().setLeftChild(null);
     }
 
-    if(element.getRightChild() != null){
+    if (element.getRightChild() != null) {
       elements.add(element.getRightChild());
     }
 
@@ -46,7 +50,7 @@ public class InorderIterator<T extends Comparable<T>> implements Iterator<T> {
   }
 
   @Override
-  public void remove(){
+  public void remove() {
     throw new UnsupportedOperationException();
   }
 }
