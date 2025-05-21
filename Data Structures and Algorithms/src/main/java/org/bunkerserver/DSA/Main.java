@@ -1,7 +1,6 @@
-package org.bunkerserver.traversal;
+package org.bunkerserver.DSA;
 
 public class Main {
   public static void main(String[] args){
-    
   }
 }
