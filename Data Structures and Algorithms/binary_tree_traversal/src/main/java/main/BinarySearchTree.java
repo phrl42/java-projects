@@ -42,17 +42,13 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 
     @Override
     public boolean isFull() {
-        Iterator<IBinaryTreeNode<T>> iterator = new InorderNodeIterator<>(root);
 
-        while(iterator.hasNext()){
-            IBinaryTreeNode<T> node = iterator.next();
+        IBinaryTreeNode<T> node = this.root;
 
-            if((node.getLeftChild() != null && node.getRightChild() == null) || (node.getLeftChild() == null && node.getRightChild() != null)){
-                return false;
-            }
+        while(node != null){
+            
         }
-
-        return true;
+        
     }
 
     @Override
