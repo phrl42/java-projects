@@ -37,6 +37,7 @@ public class BinaryTreeNode<T extends Comparable<T>> implements IBinaryTreeNode<
   }
 
   public BinaryTreeNode() {
-
+    this.childLeft = null;
+    this.childRight = null;
   }
 }
